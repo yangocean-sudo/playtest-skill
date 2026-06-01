@@ -64,7 +64,21 @@ Use the playtest skill to test this app like real users.
 
 ### Claude Code Plugin
 
-If you publish this repo as a Claude plugin, users can install it through the Claude plugin marketplace flow. The plugin metadata lives in `.claude-plugin/`.
+Install through Claude Code's plugin marketplace flow:
+
+```text
+/plugin marketplace add yangocean-sudo/playtest-skill
+/plugin install playtest-skill@playtest-skill
+```
+
+CLI equivalent:
+
+```bash
+claude plugin marketplace add yangocean-sudo/playtest-skill
+claude plugin install playtest-skill@playtest-skill
+```
+
+The plugin metadata lives in `.claude-plugin/`.
 
 ### Codex / OpenAI Agents
 
