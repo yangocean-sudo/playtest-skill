@@ -33,3 +33,13 @@ test("repo includes playtest output generated from the demo", async () => {
   assert.match(report, /Sam/);
   assert.match(report, /screenshots\//);
 });
+
+test("README surfaces demo screenshots for GitHub readers", async () => {
+  const readme = await read("README.md");
+  const readmeZh = await read("README.zh.md");
+
+  assert.match(readme, /00-report-overview\.png/);
+  assert.match(readme, /01-home\.png/);
+  assert.match(readmeZh, /00-report-overview\.png/);
+  assert.match(readmeZh, /01-home\.png/);
+});

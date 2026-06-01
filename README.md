@@ -6,6 +6,14 @@ Playtest is an agent skill for simulated target-user UX testing. It makes an AI 
 
 E2E tests check whether the product works. Playtest checks whether a human understands what to do.
 
+## Demo At A Glance
+
+The repo includes a deliberately imperfect SaaS demo and the playtest report generated from it.
+
+![Playtest report screenshot](docs/playtest/demo-teampilot/screenshots/00-report-overview.png)
+
+![TeamPilot demo app screenshot](docs/playtest/demo-teampilot/screenshots/01-home.png)
+
 ## What It Does
 
 Most AI product audits become code review or bug lists. Playtest is different:
@@ -105,6 +113,7 @@ The committed playtest output is available at:
 
 - [`docs/playtest/demo-teampilot/test-plan.md`](docs/playtest/demo-teampilot/test-plan.md)
 - [`docs/playtest/demo-teampilot/report.html`](docs/playtest/demo-teampilot/report.html)
+- [`docs/playtest/demo-teampilot/screenshots/00-report-overview.png`](docs/playtest/demo-teampilot/screenshots/00-report-overview.png)
 
 The demo technically works, but it includes realistic UX issues: weak empty-state guidance, a hidden invite action, unexplained role jargon, and a mobile next-action problem.
 
