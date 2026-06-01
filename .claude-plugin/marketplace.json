@@ -1,0 +1,30 @@
+{
+  "name": "playtest-skill",
+  "id": "playtest-skill",
+  "owner": {
+    "name": "Playtest Skill contributors"
+  },
+  "metadata": {
+    "description": "Simulated target-user UX testing for runnable products.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "playtest-skill",
+      "source": "./",
+      "description": "Use AI agents to playtest products like target users and produce screenshot-backed UX reports.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Playtest Skill contributors"
+      },
+      "keywords": [
+        "ux",
+        "usability",
+        "playtest",
+        "product",
+        "testing"
+      ],
+      "category": "workflow"
+    }
+  ]
+}

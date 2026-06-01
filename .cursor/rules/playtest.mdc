@@ -1,0 +1,19 @@
+---
+description: Use when evaluating whether a runnable product is intuitive by simulating real target users, capturing first-person UX reactions, and producing a screenshot-backed playtest report.
+alwaysApply: false
+---
+
+# Playtest
+
+Use this rule when the user asks for a playtest, UX audit, target-user simulation, or "use the app like a real user."
+
+Follow the workflow in `AGENTS.md`:
+
+1. Detect product type and driver.
+2. Understand the product and write `docs/playtest/<date>/test-plan.md`.
+3. Stop for human scope selection.
+4. Derive personas.
+5. Simulate with first-person narration.
+6. Write `docs/playtest/<date>/report.html` with screenshots.
+
+Do not run against production or shared customer data.

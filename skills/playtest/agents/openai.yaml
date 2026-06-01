@@ -1,0 +1,3 @@
+display_name: Playtest
+short_description: Simulate real target users and produce screenshot-backed UX reports.
+default_prompt: Playtest this product like real target users. First write a test plan with personas, feature inventory, prerequisites, and scope options, then stop for me to choose the scope before running the simulation.

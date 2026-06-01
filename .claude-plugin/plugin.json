@@ -1,0 +1,20 @@
+{
+  "name": "playtest-skill",
+  "description": "Simulated target-user UX testing for runnable products, with personas, first-person journey notes, and screenshot-backed HTML reports.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Playtest Skill contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ux",
+    "usability",
+    "playtest",
+    "product",
+    "agents",
+    "testing"
+  ],
+  "skills": [
+    "./skills/playtest"
+  ]
+}
