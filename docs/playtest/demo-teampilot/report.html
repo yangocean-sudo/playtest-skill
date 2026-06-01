@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playtest report - TeamPilot - Demo</title>
+<style>
+  :root { --blocker:#b00020; --high:#d35400; --medium:#9a6b00; --low:#31734f; --ink:#1a1a1a; --muted:#666; --line:#e3e3e3; --bg:#fafafa; }
+  * { box-sizing: border-box; }
+  body { font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  h2 { font-size: 21px; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }
+  h3 { font-size: 17px; margin: 24px 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .summary { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 16px 20px; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; border-radius: 999px; padding: 2px 10px; vertical-align: middle; }
+  .badge.high { background: var(--high); } .badge.medium { background: var(--medium); } .badge.low { background: var(--low); }
+  .finding { border: 1px solid var(--line); border-left: 5px solid var(--muted); border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+  .finding.high { border-left-color: var(--high); } .finding.medium { border-left-color: var(--medium); } .finding.low { border-left-color: var(--low); }
+  .finding dl { display: grid; grid-template-columns: 140px 1fr; gap: 4px 14px; margin: 10px 0 0; }
+  .finding dt { color: var(--muted); font-weight: 600; } .finding dd { margin: 0; }
+  .shot { display: block; max-width: 100%; border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; }
+  .journey { border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+  .mono { white-space: pre-wrap; background: var(--bg); border-radius: 6px; padding: 10px 12px; font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<h1>Playtest report - TeamPilot</h1>
+<p class="sub">Demo run · driver: browser-use CLI · scope: full sweep</p>
+
+<div class="summary">
+  <strong>Verdict:</strong> TeamPilot is coherent enough to understand as a small team workspace, but the first-run experience loses momentum after workspace creation. The biggest issues are weak next-step guidance, a hidden invite action, and role terminology that assumes operational knowledge most users will not have.<br>
+  <strong>Personas:</strong> Maya, Ren, Sam<br>
+  <strong>Findings:</strong> 0 blocker · 1 high · 2 medium · 1 low
+</div>
+
+<h2>What works well</h2>
+<ul>
+  <li>The visual hierarchy makes the product category clear quickly: workspace, project setup, and team operations are visible in one scan.</li>
+  <li>The create project interaction is direct once the user reaches the project card.</li>
+  <li>The demo has enough realistic surface area for a playtest: onboarding, empty states, team invites, role controls, and responsive concerns.</li>
+</ul>
+
+<h2>What's broken</h2>
+<p class="muted">No functional blockers were observed in this demo run. All tested buttons responded and produced visible state changes.</p>
+
+<h2>UX to improve</h2>
+
+<div class="finding high">
+  <strong>Workspace creation does not guide the next action</strong> <span class="badge high">high</span>
+  <dl>
+    <dt>Feature / step</dt><dd>Onboarding after Create workspace</dd>
+    <dt>Persona</dt><dd>Maya - first-time founder</dd>
+    <dt>Expectation</dt><dd>I expected the app to tell me the next most important setup step after creating the workspace.</dd>
+    <dt>What happened</dt><dd>The workspace card said the workspace was ready, but the empty state only said projects will appear after they are created.</dd>
+    <dt>Why it is a problem</dt><dd>The user has to infer that creating a project is the next step. The page has a project card nearby, but the empty state itself does not point to it.</dd>
+    <dt>Suggested fix</dt><dd>Make the empty state actionable: add a primary "Create your first project" button or link the empty state directly to the project setup card.</dd>
+    <dt>Evidence</dt><dd><img class="shot" src="screenshots/02-workspace-created.png" alt="Workspace created empty state"></dd>
+  </dl>
+</div>
+
+<div class="finding medium">
+  <strong>Invite teammate is hidden behind a generic More button</strong> <span class="badge medium">medium</span>
+  <dl>
+    <dt>Feature / step</dt><dd>Team operations member invitation</dd>
+    <dt>Persona</dt><dd>Sam - cautious workspace admin</dd>
+    <dt>Expectation</dt><dd>I expected inviting a teammate to be the primary action in the Members and roles section.</dd>
+    <dt>What happened</dt><dd>The visible section only showed a small "More" button. The invite action appeared only after opening that menu.</dd>
+    <dt>Why it is a problem</dt><dd>Inviting members is a core team setup action. Hiding it makes the admin scan the table and navigation before discovering the next step.</dd>
+    <dt>Suggested fix</dt><dd>Promote "Invite teammate" to a visible primary button in the section header. Keep secondary actions inside More.</dd>
+    <dt>Evidence</dt><dd><img class="shot" src="screenshots/04-invite-hidden-in-more.png" alt="Invite hidden behind More menu"></dd>
+  </dl>
+</div>
+
+<div class="finding medium">
+  <strong>Role label uses unexplained RACI jargon</strong> <span class="badge medium">medium</span>
+  <dl>
+    <dt>Feature / step</dt><dd>Role management table</dd>
+    <dt>Persona</dt><dd>Sam - cautious workspace admin</dd>
+    <dt>Expectation</dt><dd>I expected plain permission labels such as Admin, Member, Viewer, or a short explanation of what each role allows.</dd>
+    <dt>What happened</dt><dd>The column is labeled "RACI tier" and dropdown options use abbreviations like "A: accountable" and "R: responsible".</dd>
+    <dt>Why it is a problem</dt><dd>The admin cannot confidently choose permissions without knowing whether these labels affect access rights, task ownership, or notification behavior.</dd>
+    <dt>Suggested fix</dt><dd>Rename the column to "Role" or "Project responsibility" and add short helper text or tooltips explaining each option.</dd>
+    <dt>Evidence</dt><dd><img class="shot" src="screenshots/05-member-invited.png" alt="Role management table with RACI label"></dd>
+  </dl>
+</div>
+
+<div class="finding low">
+  <strong>Mobile preview warns about a responsive issue but does not let the user resolve it</strong> <span class="badge low">low</span>
+  <dl>
+    <dt>Feature / step</dt><dd>Responsive surface</dd>
+    <dt>Persona</dt><dd>Ren - invited teammate</dd>
+    <dt>Expectation</dt><dd>I expected the mobile preview to show the same core next action or explain how the mobile flow differs.</dd>
+    <dt>What happened</dt><dd>The preview shows "Open menu" and says the main action moves into the menu on small screens.</dd>
+    <dt>Why it is a problem</dt><dd>It demonstrates the issue but would still leave a mobile user doing extra navigation to continue setup.</dd>
+    <dt>Suggested fix</dt><dd>Keep one primary next action visible on mobile, even if secondary navigation moves into a menu.</dd>
+    <dt>Evidence</dt><dd><img class="shot" src="screenshots/01-home.png" alt="Home page with mobile preview lower on page"></dd>
+  </dl>
+</div>
+
+<h2>Per-persona journeys</h2>
+
+<div class="journey">
+  <h3>Maya - first-time founder</h3>
+  <p class="muted">Goal: create a workspace and start the first project.</p>
+  <div class="mono">I land on TeamPilot and immediately understand this is a team workspace. The setup form is clear, so I create "Northstar Ops". Now I expect the product to move me forward. I see "Your workspace is ready" and an empty box saying projects will appear after they are created. I pause because the empty state describes the future but does not give me the action. I eventually notice the "Project setup" card beside it and create "June launch". That works, but I had to connect the dots myself.</div>
+  <img class="shot" src="screenshots/03-project-created.png" alt="Project created journey step">
+</div>
+
+<div class="journey">
+  <h3>Ren - invited teammate</h3>
+  <p class="muted">Goal: understand what work exists and where to start.</p>
+  <div class="mono">I scan the dashboard for active work. The project area makes sense after a project exists because the checklist appears under the launch plan. The member section is less clear to me. I can see names and status, but "RACI tier" feels like internal process language. If I were just invited to help, I would not know whether this affects permissions, ownership, or who gets notified.</div>
+  <img class="shot" src="screenshots/05-member-invited.png" alt="Invited member journey step">
+</div>
+
+<div class="journey">
+  <h3>Sam - cautious workspace admin</h3>
+  <p class="muted">Goal: invite a teammate and choose a safe role.</p>
+  <div class="mono">I go to Members and roles expecting an Invite button near the section title. I only see "More", which feels like secondary actions, not setup. I open it and find Invite teammate. The invite works, but then I need to choose a role. The options are RACI terms, so I slow down. I do not want to accidentally give someone the wrong access because the label does not explain what the choice controls.</div>
+  <img class="shot" src="screenshots/04-invite-hidden-in-more.png" alt="Admin invite journey step">
+</div>
+
+<h2>Couldn't test</h2>
+<ul>
+  <li>Persistent auth, backend data saving, and real invitation emails <span class="muted">- the demo is intentionally local and static.</span></li>
+</ul>
+</body>
+</html>

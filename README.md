@@ -87,6 +87,27 @@ docs/playtest/<YYYY-MM-DD>/report.html
 docs/playtest/<YYYY-MM-DD>/screenshots/
 ```
 
+## Demo
+
+This repository includes a deliberately imperfect demo SaaS app, TeamPilot:
+
+```bash
+npm run serve:demo
+```
+
+Open:
+
+```text
+http://localhost:4173
+```
+
+The committed playtest output is available at:
+
+- [`docs/playtest/demo-teampilot/test-plan.md`](docs/playtest/demo-teampilot/test-plan.md)
+- [`docs/playtest/demo-teampilot/report.html`](docs/playtest/demo-teampilot/report.html)
+
+The demo technically works, but it includes realistic UX issues: weak empty-state guidance, a hidden invite action, unexplained role jargon, and a mobile next-action problem.
+
 ## Safety
 
 Only run this against local or disposable development environments.

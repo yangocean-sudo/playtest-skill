@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TeamPilot Demo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d8a33c'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Georgia' font-size='22' font-weight='700' fill='%2318221f'%3ETP%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <div class="brand">
+        <div class="brand-mark">TP</div>
+        <div>
+          <strong>TeamPilot</strong>
+          <span>Ops workspace</span>
+        </div>
+      </div>
+
+      <nav class="nav-list">
+        <a class="nav-item active" href="#dashboard">Dashboard</a>
+        <a class="nav-item" href="#projects">Projects</a>
+        <a class="nav-item" href="#members">Members</a>
+        <a class="nav-item" href="#settings">Settings</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <span class="note-label">Setup</span>
+        <p>2 of 5 steps complete</p>
+        <div class="progress"><span style="width:40%"></span></div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero" data-playtest="onboarding">
+        <div>
+          <p class="eyebrow">Demo SaaS workspace</p>
+          <h1>Run team projects from first setup to daily execution.</h1>
+          <p class="lede">TeamPilot gives playtest agents onboarding, empty states, team invites, project setup, role management, and mobile layout decisions to evaluate.</p>
+        </div>
+        <form class="signup-panel" id="signupForm" aria-label="Create workspace">
+          <label>
+            Work email
+            <input id="email" name="email" type="email" value="maya@example.test" autocomplete="email">
+          </label>
+          <label>
+            Workspace name
+            <input id="workspaceName" name="workspaceName" value="Northstar Ops" autocomplete="organization">
+          </label>
+          <button class="primary" type="submit">Create workspace</button>
+          <p class="form-note">No password needed in this demo.</p>
+        </form>
+      </section>
+
+      <section class="workspace-grid" data-playtest="workspace">
+        <div class="workspace-card empty-state" data-ux-issue="weak-empty-state">
+          <span class="card-kicker">Workspace</span>
+          <h2 id="workspaceTitle">Northstar Ops</h2>
+          <p id="workspaceStatus">Your workspace is ready.</p>
+          <div class="empty-box">
+            <strong>Nothing here yet</strong>
+            <span>Projects will appear after they are created.</span>
+          </div>
+        </div>
+
+        <div class="workspace-card action-card" data-playtest="project">
+          <span class="card-kicker">Project setup</span>
+          <h2>Launch plan</h2>
+          <p>Create the first project so the team has a place to work.</p>
+          <div class="field-row">
+            <input id="projectName" value="June launch" aria-label="Project name">
+            <button class="secondary" id="createProject">Create project</button>
+          </div>
+          <ul class="task-list" id="taskList">
+            <li><span class="dot muted"></span>No tasks created</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="operations">
+        <div class="ops-header">
+          <div>
+            <p class="eyebrow">Team operations</p>
+            <h2>Members and roles</h2>
+          </div>
+          <button class="ghost tiny" id="moreMenu" aria-expanded="false" data-ux-issue="hidden-primary-action">More</button>
+        </div>
+
+        <div class="hidden-menu" id="inviteMenu" data-playtest="invite">
+          <button class="primary" id="inviteButton">Invite teammate</button>
+        </div>
+
+        <div class="member-table" data-playtest="role-management">
+          <div class="member-row header">
+            <span>Name</span>
+            <span>Status</span>
+            <span data-ux-issue="jargon-role-label">RACI tier</span>
+          </div>
+          <div class="member-row">
+            <span>Maya Chen</span>
+            <span>Owner</span>
+            <select aria-label="Maya role">
+              <option>A: accountable</option>
+              <option>R: responsible</option>
+              <option>C: consulted</option>
+            </select>
+          </div>
+          <div class="member-row invited" id="invitedRow" hidden>
+            <span>Ren Park</span>
+            <span>Invited</span>
+            <select aria-label="Ren role">
+              <option>R: responsible</option>
+              <option>C: consulted</option>
+              <option>I: informed</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="mobile-preview" aria-label="Mobile preview">
+        <div>
+          <p class="eyebrow">Responsive surface</p>
+          <h2>Mobile check</h2>
+          <p>The main action moves into the menu on small screens, which makes onboarding harder to continue.</p>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-top"></div>
+          <strong>Northstar Ops</strong>
+          <p>0 active projects</p>
+          <button class="ghost">Open menu</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>

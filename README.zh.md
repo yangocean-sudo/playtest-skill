@@ -56,6 +56,29 @@ docs/playtest/<YYYY-MM-DD>/report.html
 docs/playtest/<YYYY-MM-DD>/screenshots/
 ```
 
+## Demo
+
+这个 repo 包含一个故意不完美的小型 SaaS demo：TeamPilot。
+
+运行：
+
+```bash
+npm run serve:demo
+```
+
+打开：
+
+```text
+http://localhost:4173
+```
+
+已提交的 playtest 示例输出在：
+
+- [`docs/playtest/demo-teampilot/test-plan.md`](docs/playtest/demo-teampilot/test-plan.md)
+- [`docs/playtest/demo-teampilot/report.html`](docs/playtest/demo-teampilot/report.html)
+
+这个 demo 技术上能跑通，但故意保留了真实产品常见 UX 问题：空状态没有下一步引导、邀请入口隐藏、角色术语难懂、移动端主操作不明显。
+
 ## 安全边界
 
 只在本地或 disposable dev 环境运行。

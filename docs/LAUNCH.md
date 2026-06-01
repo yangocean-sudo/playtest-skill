@@ -57,6 +57,7 @@ The skill itself is not tied to one agent runtime.
 ## Screenshot Ideas
 
 - `docs/EXAMPLE-test-plan.md`
+- `docs/playtest/demo-teampilot/report.html`
 - a generated `report.html`
 - one first-person persona journey
 - one finding with screenshot evidence
